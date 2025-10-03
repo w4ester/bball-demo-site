@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>LTRC Basketball — Youth Program (Demo)</title>
+<link href="assets/styles.css" rel="stylesheet"/>
+<meta content="LTRC Youth Basketball — easy registration, clear info, and a welcoming community (demo site)." name="description"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main Navigation" class="navbar" role="navigation">
+<div class="nav-container">
+<a aria-label="LTRC Basketball Home" class="brand" href="index.html">
+<img alt="" height="40" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420'%3E%3Crect width='600' height='420' rx='20' fill='%23ff962c'/%3E%3Cpath d='M300 0v420M0 210h600' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='300' cy='210' r='60' fill='none' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M60 0v420M540 0v420' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='500' cy='350' r='50' fill='%23ffc380'/%3E%3Cpath d='M500 300v100M450 350h100' stroke='%23ff7a00' stroke-width='2'/%3E%3Cpath d='M475 325l50 50M525 325l-50 50' stroke='%23ff7a00' stroke-width='2'/%3E%3C/svg%3E" width="57"/>
+<span>LTRC Basketball</span>
+</a>
+<button aria-controls="primary-navigation" aria-expanded="false" class="nav-toggle" type="button">Menu</button><div class="nav-links" id="primary-navigation" role="menubar">
+<a href="new-to-ltrc.html" role="menuitem">New to LTRC?</a>
+<a href="programs.html" role="menuitem">Programs</a>
+<a href="faq.html" role="menuitem">FAQs</a>
+<a href="calendar.html" role="menuitem">Calendar</a>
+<a href="coaches.html" role="menuitem">Coaches</a>
+<a href="sponsors.html" role="menuitem">Sponsors</a>
+<a class="btn btn-primary" href="registration.html" role="menuitem">Register</a>
+</div>
+</div>
+</nav>
+<header class="hero">
+<div class="hero-inner container">
+<div class="hero-copy">
+<span class="badge">2025–26 Season • Registration now open</span>
+<h1>Recreational sport focused on fun <em>and</em> supporting community.</h1>
+<p>Where kids learn basketball basics through games and activities. Parent volunteers run the league and the focus stays on fun—not competition. Register online and join our community.</p>
+<div class="cta-row">
+<a aria-label="Register now" class="btn btn-primary" href="registration.html">Start Registration</a>
+<a class="btn btn-outline" href="new-to-ltrc.html">New Family Guide</a>
+</div>
+<div aria-label="Program highlights" class="hero-stats">
+<div class="stat-pill"><strong>1,200+</strong><span>Players each winter</span></div>
+<div class="stat-pill"><strong>200+</strong><span>Volunteer coaches trained</span></div>
+<div class="stat-pill"><strong>36</strong><span>Years serving Lutherville-Timonium</span></div>
+</div>
+</div>
+<div aria-live="polite" class="hero-visual">
+<div class="hero-card">
+<h2 style="margin-top:0">Where does my player fit?</h2>
+<label for="playerType">Player type</label>
+<select id="playerType" onchange="calculatePlacement()">
+<option value="boy">Boy (age-based)</option>
+<option value="girl">Girl (grade-based)</option>
+</select>
+<div id="boyFields">
+<label for="birthday">Birthdate</label>
+<input id="birthday" onchange="calculatePlacement()" type="date"/>
+</div>
+<div id="girlFields" style="display:none">
+<label for="grade">Grade</label>
+<select id="grade" onchange="calculatePlacement()">
+<option value="">Select grade</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+</select>
+</div>
+<p id="placement-result"><small>Use the tool to see a suggested placement as of Sept 1, 2025.</small></p>
+<script>
+          const typeSel = document.getElementById('playerType');
+          function toggleFields(){
+            document.getElementById('boyFields').style.display = typeSel.value==='boy' ? '' : 'none';
+            document.getElementById('girlFields').style.display = typeSel.value==='girl' ? '' : 'none';
+            calculatePlacement();
+          }
+          typeSel.addEventListener('change', toggleFields);
+          toggleFields();
+        </script>
+<div aria-live="polite" class="placement-history"><div class="placement-history__header"><strong>Recent player placement checks</strong><button class="placement-clear" type="button">Clear list</button></div><ul class="placement-history__list"><p class="placement-history__empty">Your placement history will appear here after you run the helper.</p></ul></div><div class="email-banner"><strong>Email the guide to yourself</strong><p>Enter an email address to receive the placement summary and program links.</p><form id="placement-email-form" novalidate="True"><input id="placement-email" name="placement-email" placeholder="family@example.com" required="True" type="email"/><button class="btn btn-primary" type="submit">Send summary</button></form><p aria-live="polite" class="placement-email-status" role="status"></p></div></div>
+<div aria-hidden="true" class="hero-graphic">
+<img alt="Stylized basketball court illustration" height="320" loading="lazy" src="assets/graphics/hero-court.svg" width="380"/>
+</div>
+</div>
+</div>
+</header>
+<main id="main">
+<section class="section">
+<div class="container">
+<h2>Why LTRC families keep coming back</h2>
+<p class="lead">Our programs are responsive to you and rooted in our community.</p>
+<div class="feature-grid">
+<article class="feature-card">
+<svg aria-hidden="true" role="img" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="32" fill="rgba(255,150,44,.25)" r="30"></circle>
+<path d="M12 24l20 12 20-12" fill="none" stroke="#ff962c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M20 18l12 7 12-7" fill="none" opacity=".85" stroke="#1ecfff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M20 34v8" stroke="#1ecfff" stroke-linecap="round" stroke-width="4"></path>
+<path d="M44 34v8" stroke="#ff962c" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<h3>Kids Have Fun</h3>
+<p>Kids get to participate and have fun! Skills taught through games and activities, not drills. Everyone plays, everyone smiles.</p>
+</article>
+<article class="feature-card">
+<svg aria-hidden="true" role="img" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<rect fill="rgba(30,207,255,.22)" height="40" rx="8" width="44" x="10" y="12"></rect>
+<path d="M18 28h28M18 38h20" stroke="#0f80ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<circle cx="44" cy="38" fill="#ff962c" r="4"></circle>
+<path d="M24 18l8 8 8-8" fill="none" stroke="#ff962c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<h3>Coach-ready resources</h3>
+<p>Printable practice plans, sample drills, and mentorship keep volunteers supported from evaluations to playoffs.</p>
+</article>
+<article class="feature-card">
+<svg aria-hidden="true" role="img" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="24" fill="#ff962c" r="8"></circle>
+<circle cx="44" cy="20" fill="#1ecfff" r="6"></circle>
+<circle cx="44" cy="40" fill="rgba(255,150,44,.25)" r="10"></circle>
+<path d="M14 44c4-6 12-9 18-7 6 2 14-4 18-12" fill="none" opacity=".8" stroke="#ff962c" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<h3>Built for busy families</h3>
+<p>Mobile-first tools, automated reminders, and a unified portal mean fewer emails and faster answers.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" style="background:linear-gradient(145deg,rgba(7,29,52,.05),rgba(30,207,255,.08));">
+<div class="container">
+<h2>Kids having fun with basketball</h2>
+<p class="lead">Saturday mornings filled with laughter, learning basic skills, and making friends. No pressure, just play.</p>
+<div class="gallery-grid" role="list">
+<img alt="Basketball court with ball illustration" height="420" loading="lazy" role="listitem" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420'%3E%3Crect width='600' height='420' rx='20' fill='%23ff962c'/%3E%3Cpath d='M300 0v420M0 210h600' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='300' cy='210' r='60' fill='none' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M60 0v420M540 0v420' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='500' cy='350' r='50' fill='%23ffc380'/%3E%3Cpath d='M500 300v100M450 350h100' stroke='%23ff7a00' stroke-width='2'/%3E%3Cpath d='M475 325l50 50M525 325l-50 50' stroke='%23ff7a00' stroke-width='2'/%3E%3C/svg%3E" width="600"/>
+<img alt="Basketball court with ball illustration" height="420" loading="lazy" role="listitem" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420'%3E%3Crect width='600' height='420' rx='20' fill='%23ff962c'/%3E%3Cpath d='M300 0v420M0 210h600' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='300' cy='210' r='60' fill='none' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M60 0v420M540 0v420' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='500' cy='350' r='50' fill='%23ffc380'/%3E%3Cpath d='M500 300v100M450 350h100' stroke='%23ff7a00' stroke-width='2'/%3E%3Cpath d='M475 325l50 50M525 325l-50 50' stroke='%23ff7a00' stroke-width='2'/%3E%3C/svg%3E" width="600"/>
+<img alt="Basketball court with ball illustration" height="420" loading="lazy" role="listitem" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420'%3E%3Crect width='600' height='420' rx='20' fill='%23ff962c'/%3E%3Cpath d='M300 0v420M0 210h600' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='300' cy='210' r='60' fill='none' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M60 0v420M540 0v420' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='500' cy='350' r='50' fill='%23ffc380'/%3E%3Cpath d='M500 300v100M450 350h100' stroke='%23ff7a00' stroke-width='2'/%3E%3Cpath d='M475 325l50 50M525 325l-50 50' stroke='%23ff7a00' stroke-width='2'/%3E%3C/svg%3E" width="600"/>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<h2>Families love the fun</h2>
+<div class="testimonials">
+<div class="quote-card">
+<blockquote>
+            "My daughter couldn't wait for Saturday practice! The coaches turned drills into games and now she's teaching her stuffed animals how to dribble. Pure joy!"
+          </blockquote>
+<div class="quote-meta">Mom of a hoop-loving 7-year-old</div>
+</div>
+<div class="quote-card">
+<blockquote>
+            "No pressure, just fun! It was so great my son got to play with his school friends all on the same team. This is exactly what this should be for kids under 10!"
+          </blockquote>
+<div class="quote-meta">Dad of a first-time player</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section programs-section">
+<div class="container">
+<h2>Programs at a glance</h2>
+<p class="lead">These sample details show how we communicate cadence and expectations. Update with your official season plan.</p>
+<div class="table-wrapper">
+<table class="table">
+<thead><tr><th>Division</th><th>Placement Basis</th><th>Typical Cadence</th></tr></thead>
+<tbody>
+<tr><td>Boys Clinic 6–7</td><td>Age as of Sept 1</td><td>Saturday skills clinic (1×/week)</td></tr>
+<tr><td>Boys Clinic 8</td><td>Age as of Sept 1</td><td>Saturday games + one weekday practice*</td></tr>
+<tr><td>Boys 9–10</td><td>Age as of Sept 1</td><td>League play, 2 touches/week</td></tr>
+<tr><td>Girls (by grade)</td><td>School grade</td><td>Clinic or league by level</td></tr>
+</tbody>
+</table>
+</div>
+<p><small>*As space permits. Replace with official cadence once finalized.</small></p>
+</div>
+</section>
+<section class="section">
+<div class="container grid-3">
+<div class="card">
+<h3 style="margin-top:0">Upcoming dates</h3>
+<ul>
+<li>Evaluations/Assessments — TBD</li>
+<li>Practices start — Nov (sample)</li>
+<li>Clinic begins — Dec (sample)</li>
+</ul>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Be a coach</h3>
+<p>Great coaches make great seasons. Sign up to coach and we'll equip you with simple practice plans.</p>
+<p><a class="btn" href="coaches.html">Volunteer to coach</a></p>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Sponsors</h3>
+<p>Support youth sports and get your business in front of local families.</p>
+<p><a class="btn" href="sponsors.html">Explore sponsorships</a></p>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer" role="contentinfo">
+<div class="container">
+<p><strong>LTRC Basketball</strong> — Community youth basketball program.</p>
+<p><small>Demo site for illustration. Replace placeholder text with official content and policies. © 2025</small></p>
+<div aria-label="Social links" class="social-links">
+<a aria-label="Follow on Facebook" href="#">Fb</a>
+<a aria-label="Follow on Instagram" href="#">Ig</a>
+<a aria-label="Follow on X" href="#">X</a>
+</div>
+</div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>

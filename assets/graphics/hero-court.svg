@@ -1,0 +1,37 @@
+<svg width="520" height="420" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Stylized basketball court illustration</title>
+  <desc id="desc">Abstract illustration of a basketball court with vibrant gradients.</desc>
+  <defs>
+    <linearGradient id="courtGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb81c"/>
+      <stop offset="100%" stop-color="#ff6b2c"/>
+    </linearGradient>
+    <radialGradient id="ballGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.95)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="520" height="420" rx="32" fill="#0a2540"/>
+  <g opacity="0.12">
+    <circle cx="120" cy="300" r="200" fill="#1f3d68"/>
+    <circle cx="420" cy="120" r="210" fill="#1f3d68"/>
+  </g>
+  <g transform="translate(60,60)">
+    <rect width="400" height="300" rx="28" fill="url(#courtGradient)"/>
+    <rect x="12" y="12" width="376" height="276" rx="24" fill="#fff" opacity="0.1"/>
+    <path d="M200 12v276" stroke="#fff" stroke-width="6" opacity="0.35"/>
+    <circle cx="200" cy="150" r="58" stroke="#fff" stroke-width="6" opacity="0.35" fill="none"/>
+    <circle cx="80" cy="150" r="40" stroke="#fff" stroke-width="6" opacity="0.2" fill="none"/>
+    <circle cx="320" cy="150" r="40" stroke="#fff" stroke-width="6" opacity="0.2" fill="none"/>
+    <path d="M12 110h40v80h-40" stroke="#fff" stroke-width="6" opacity="0.35" fill="none"/>
+    <path d="M388 110h-40v80h40" stroke="#fff" stroke-width="6" opacity="0.35" fill="none"/>
+  </g>
+  <g transform="translate(310,220)">
+    <circle cx="90" cy="90" r="86" fill="#ff8737"/>
+    <circle cx="90" cy="90" r="86" fill="url(#ballGlow)"/>
+    <path d="M4 90h172" stroke="#7a2a00" stroke-width="6" opacity="0.35"/>
+    <path d="M90 4v172" stroke="#7a2a00" stroke-width="6" opacity="0.35"/>
+    <path d="M30 30c40 22 80 110 120 132" stroke="#7a2a00" stroke-width="6" opacity="0.4" fill="none"/>
+    <path d="M150 30c-40 22-80 110-120 132" stroke="#7a2a00" stroke-width="6" opacity="0.4" fill="none"/>
+  </g>
+</svg>

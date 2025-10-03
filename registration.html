@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Registration Hub — LTRC Basketball (Demo)</title>
+<link href="assets/styles.css" rel="stylesheet"/>
+<meta content="One-stop registration hub keeping every step on the LTRC site for secure payments and waivers." name="description"/>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Main Navigation" class="navbar" role="navigation">
+<div class="nav-container">
+<a aria-label="LTRC Basketball Home" class="brand" href="index.html">
+<img alt="" height="40" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 420'%3E%3Crect width='600' height='420' rx='20' fill='%23ff962c'/%3E%3Cpath d='M300 0v420M0 210h600' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='300' cy='210' r='60' fill='none' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M60 0v420M540 0v420' stroke='white' stroke-width='4' opacity='0.5'/%3E%3Ccircle cx='500' cy='350' r='50' fill='%23ffc380'/%3E%3Cpath d='M500 300v100M450 350h100' stroke='%23ff7a00' stroke-width='2'/%3E%3Cpath d='M475 325l50 50M525 325l-50 50' stroke='%23ff7a00' stroke-width='2'/%3E%3C/svg%3E" width="57"/>
+<span>LTRC Basketball</span>
+</a>
+<button aria-controls="primary-navigation" aria-expanded="false" class="nav-toggle" type="button">Menu</button><div class="nav-links" id="primary-navigation" role="menubar">
+<a href="new-to-ltrc.html" role="menuitem">New to LTRC?</a>
+<a href="programs.html" role="menuitem">Programs</a>
+<a href="faq.html" role="menuitem">FAQs</a>
+<a href="calendar.html" role="menuitem">Calendar</a>
+<a href="coaches.html" role="menuitem">Coaches</a>
+<a href="sponsors.html" role="menuitem">Sponsors</a>
+<a class="btn btn-primary" href="registration.html" role="menuitem">Register</a>
+</div>
+</div>
+</nav>
+<header class="hero hero-sub">
+<div class="hero-inner container">
+<div>
+<h1>All-in-one LTRC Registration Portal</h1>
+<p>Family accounts, player enrollment, payments, and waivers now live on the LTRC site—no external logins required.</p>
+<div class="cta-row">
+<a aria-label="Start registration checklist" class="btn btn-primary" href="#register">Get Started</a>
+<a class="btn btn-outline" href="#portal-guide">Portal tour</a>
+</div>
+</div>
+<div class="card">
+<h2 style="margin-top:0">Quick Checklist</h2>
+<ul class="checklist">
+<li>Family contact info and player birthdates</li>
+<li>Medical/emergency contacts ready to copy over</li>
+<li>Preferred division noted from the placement helper</li>
+<li>Payment method ready for online checkout</li>
+</ul>
+</div>
+</div>
+</header>
+<main id="main">
+  <section class="section" id="register">
+<div class="container reg-container">
+<span class="badge">Step-by-step</span>
+<h2>Guided registration flow</h2>
+<p class="lead">Work through the checklist, save progress automatically, and send a summary to your inbox. Replace sample copy with your official wording and policy links.</p>
+<div aria-label="Registration steps" class="reg-progress" role="list">
+<div class="reg-step-pill active" data-step="1" role="listitem">
+<button aria-label="Go to family profile step" data-target="1" type="button">1</button>
+<span>Family</span>
+</div>
+<div class="reg-step-pill" data-step="2" role="listitem">
+<button aria-label="Go to players step" data-target="2" type="button">2</button>
+<span>Players</span>
+</div>
+<div class="reg-step-pill" data-step="3" role="listitem">
+<button aria-label="Go to waivers step" data-target="3" type="button">3</button>
+<span>Waivers</span>
+</div>
+<div class="reg-step-pill" data-step="4" role="listitem">
+<button aria-label="Go to review step" data-target="4" type="button">4</button>
+<span>Review</span>
+</div>
+</div>
+<form class="registration-form" id="registration-flow" novalidate="">
+<section class="reg-card reg-step" data-step="1">
+<h3>Step 1 · Family profile</h3>
+<p class="autosave-status" data-autosave="">Autosave keeps your progress every few seconds.</p>
+<div class="reg-fields reg-two-col">
+<div>
+<label for="guardianName">Primary guardian name</label>
+<input id="guardianName" name="guardianName" placeholder="Jordan Taylor" required="" type="text"/>
+</div>
+<div>
+<label for="guardianEmail">Email</label>
+<input id="guardianEmail" name="guardianEmail" placeholder="family@example.org" required="" type="email"/>
+</div>
+<div>
+<label for="guardianPhone">Mobile phone</label>
+<input id="guardianPhone" name="guardianPhone" placeholder="410-555-0123" type="tel"/>
+</div>
+<div>
+<label for="homeAddress">Home address</label>
+<input id="homeAddress" name="homeAddress" placeholder="Street, city, ZIP" type="text"/>
+</div>
+</div>
+<div class="reg-actions">
+<span></span>
+<div>
+<button class="btn btn-primary" data-action="next" type="button">Next: Players</button>
+</div>
+</div>
+</section>
+<section class="reg-card reg-step hidden" data-step="2">
+<h3>Step 2 · Players &amp; divisions</h3>
+<p>Add each player, choose their division, and note if a waitlist applies. This sample content can be replaced with your official roster fields.</p>
+<div class="player-list" id="playerList"></div>
+<button class="btn btn-secondary" id="addPlayer" type="button">Add player</button>
+<div class="reg-actions">
+<button class="btn btn-outline" data-action="prev" type="button">Back</button>
+<div>
+<button class="btn btn-primary" data-action="next" type="button">Next: Waivers</button>
+</div>
+</div>
+</section>
+<section class="reg-card reg-step hidden" data-step="3">
+<h3>Step 3 · Waivers &amp; discounts</h3>
+<div class="reg-fields">
+<label><input id="waiverMedical" type="checkbox"/> I acknowledge the medical release above.</label>
+<label><input id="waiverConduct" type="checkbox"/> I acknowledge the code of conduct above.</label>
+</div>
+<div class="discount-grid">
+<div>
+<label for="baseFee">Base program fee</label>
+<input id="baseFee" min="0" step="10" type="number" value="190"/>
+</div>
+<div>
+<label for="siblingCount">Number of siblings registering</label>
+<input id="siblingCount" min="1" step="1" type="number" value="1"/>
+</div>
+</div>
+<div aria-live="polite" class="discount-result" id="discountSummary">
+            Sibling discount: add at least two players to calculate savings.
+          </div>
+<div class="reg-actions">
+<button class="btn btn-outline" data-action="prev" type="button">Back</button>
+<div>
+<button class="btn btn-primary" data-action="next" type="button">Next: Review</button>
+</div>
+</div>
+</section>
+<section class="reg-card reg-step hidden" data-step="4">
+<h3>Step 4 · Review &amp; submit</h3>
+<p class="lead">Verify the summary below, then head to checkout. Replace the placeholder items with your final integration or payment link.</p>
+<div class="dashboard-card" id="reviewSummary">
+<p>No players added yet.</p>
+</div>
+<div class="reg-actions">
+<button class="btn btn-outline" data-action="prev" type="button">Back</button>
+<div class="cta-row">
+<button class="btn btn-secondary" id="saveExit" type="button">Save &amp; finish later</button>
+<a class="btn btn-primary" href="#" id="proceedCheckout">Proceed to checkout</a>
+</div>
+</div>
+</section>
+</form>
+<section aria-live="polite" class="dashboard">
+<div class="dashboard-card">
+<h3>Family dashboard snapshot</h3>
+<ul class="dashboard-list" id="dashboardFamily">
+<li>No guardian details yet.</li>
+</ul>
+</div>
+<div class="dashboard-card">
+<h3>Players summary</h3>
+<ul class="dashboard-list" id="dashboardPlayers">
+<li>No players added.</li>
+</ul>
+</div>
+<div class="dashboard-card">
+<h3>Waitlist notifications</h3>
+<p class="small" id="waitlistSummary">Divisions that are full will appear here with instructions.</p>
+</div>
+</section>
+</div>
+</section>
+<section class="section portal-guide-section" id="portal-guide">
+<div class="container">
+<h2>Inside the LTRC registration portal</h2>
+<div class="card portal-card">
+<h3 style="margin-top:0">What you can manage without leaving ltrcbasketball.org</h3>
+<ul class="stacked-list">
+<li><strong>Family dashboard:</strong> Create profiles for players and guardians, store emergency contacts, and update preferences in one place.</li>
+<li><strong>Division selection &amp; payments:</strong> Register for clinics or leagues, apply credits, and submit payments through our PCI-compliant checkout.</li>
+<li><strong>Form locker:</strong> Complete waivers, upload birth certificates, and revisit signed documents any time.</li>
+</ul>
+<p class="doc-intro">Need help with your account? Email <a href="mailto:info@example.org">info@example.org</a> and our registrar will respond within one business day.</p>
+</div>
+</div>
+</section>
+<section class="section" id="after">
+<div class="container grid-3">
+<div class="card">
+<h3 style="margin-top:0">After you register</h3>
+<ul class="stacked-list">
+<li>Look for a confirmation email from the LTRC registration portal within a few minutes.</li>
+<li>Expect team placement details from coaches 2–3 weeks before the season.</li>
+<li>Keep your portal account updated if contact information or medical notes change.</li>
+</ul>
+</div>
+<div class="card doc-card">
+<h3 style="margin-top:0">Important forms &amp; waivers</h3>
+<p class="doc-intro">Review, copy, or download the required language without leaving this page.</p>
+<details class="doc-block" open="">
+<summary>Player Medical Release</summary>
+<div class="doc-content" id="doc-medical">
+<p>I, the undersigned parent/guardian of the player named on this registration, hereby authorize the representatives and coaches of LTRC Basketball to secure medical evaluation and treatment for my child in the event of an injury or illness when I cannot be reached in a timely manner. Reasonable attempts to contact the emergency contacts listed in my LTRC registration account will be made prior to transport or treatment whenever possible.</p>
+<p>I assume all medical costs not covered by my insurance carrier and agree to inform the program in writing of any changes to insurance or emergency contact information. I certify that my child is physically fit to participate in youth basketball activities, has no undisclosed medical conditions that would prohibit participation, and that I will provide any prescribed medications/equipment prior to each session.</p>
+<p>In consideration of participation, I release and hold harmless LTRC Basketball, the Lutherville-Timonium Recreation Council, Baltimore County Recreation &amp; Parks, program volunteers, and facility partners from liability for ordinary negligence. I understand that this release does not extend to gross negligence or willful misconduct.</p>
+<p><strong>Electronic signature:</strong> By completing the LTRC online registration and submitting payment, I acknowledge that this authorization is binding and serves as my electronic signature with the same force as a handwritten signature. A printable PDF copy is available below for personal records.</p>
+</div>
+<div class="doc-actions">
+<button class="btn btn-secondary" data-copy-target="#doc-medical">Copy text</button>
+<a class="btn btn-outline-secondary" download="" href="assets/forms/ltrc-medical-release.pdf">Download PDF</a>
+</div>
+</details>
+<details class="doc-block">
+<summary>Code of Conduct Acknowledgment</summary>
+<div class="doc-content" id="doc-conduct">
+<p>As a family, we agree to uphold the LTRC Basketball Code of Conduct throughout the season:</p>
+<ul>
+<li>Treat teammates, opponents, coaches, officials, and spectators with respect at all times.</li>
+<li>Demonstrate positive sportsmanship by cheering for effort, avoiding negative comments, and accepting officials' decisions without confrontation.</li>
+<li>Follow the instructions of LTRC coaches and volunteers, arrive on time, and communicate conflicts in advance.</li>
+<li>Maintain a safe environment by keeping the court, sidelines, and spectator areas free of disruptive behavior.</li>
+<li>Understand that violations of this code may result in removal from an individual game, suspension, or dismissal from the program without refund.</li>
+</ul>
+<p>Parents/guardians agree to model the expectations above, support coaches in addressing behavioral issues, and reinforce that participation in LTRC Basketball is a privilege. The digital acknowledgment provided during the online checkout serves as our family’s signature and commitment to these standards.</p>
+</div>
+<div class="doc-actions">
+<button class="btn btn-secondary" data-copy-target="#doc-conduct">Copy text</button>
+<a class="btn btn-outline-secondary" download="" href="assets/forms/ltrc-code-of-conduct.pdf">Download PDF</a>
+</div>
+</details>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Coach or sponsor?</h3>
+<p>Complete the interest form so we can match you with the right age group or sponsorship package.</p>
+<p><a class="btn" href="coaches.html">Volunteer to coach</a></p>
+<p><a class="btn" href="sponsors.html">View sponsor options</a></p>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Need help?</h3>
+<p>Email <a href="mailto:info@example.org">info@example.org</a> or check the <a href="faq.html">FAQ</a> for quick answers about fees, refunds, and waitlists.</p>
+</div>
+</div>
+</section>
+
+<footer class="footer" role="contentinfo">
+<div class="container">
+<p><strong>LTRC Basketball</strong> — Community youth basketball program.</p>
+<p><small>Demo site for illustration. Replace placeholder text with official content and policies. © 2025</small></p>
+</div>
+</footer>
+<script src="assets/script.js"></script>
+</body>
+</html>
