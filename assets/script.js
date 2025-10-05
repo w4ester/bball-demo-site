@@ -590,12 +590,33 @@ function setupMobileNav(){
   const nav = document.querySelector('.nav-links');
   const toggle = document.querySelector('.nav-toggle');
   if(!nav || !toggle) return;
+  
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
-    document.body.classList.toggle(NAV_OPEN_CLASS, !expanded);
+    document.body.classList.toggle('nav-open', !expanded);
     nav.classList.toggle('nav-links--open', !expanded);
-    toggle.textContent = !expanded ? 'Close menu' : 'Menu';
+    toggle.classList.toggle('active', !expanded);
+  });
+  
+  // Close menu when clicking nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-links--open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    });
+  });
+  
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('nav-links--open')) {
+      nav.classList.remove('nav-links--open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    }
   });
 }
 
