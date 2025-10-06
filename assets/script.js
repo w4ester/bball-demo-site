@@ -596,6 +596,8 @@ function setupMobileNav(){
     toggle.setAttribute('aria-expanded', String(!expanded));
     nav.classList.toggle('nav-links--open', !expanded);
     toggle.classList.toggle('active', !expanded);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = !expanded ? 'hidden' : '';
   });
   
   // Close menu when clicking nav links
@@ -604,6 +606,7 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Restore scroll
     });
   });
   
@@ -613,6 +616,7 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Restore scroll
     }
   });
 }
