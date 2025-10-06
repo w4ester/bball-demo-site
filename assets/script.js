@@ -598,13 +598,26 @@ function setupMobileNav(){
   const toggle = document.querySelector('.nav-toggle');
   if(!nav || !toggle) return;
   
+  let scrollY = 0;
+  
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
     nav.classList.toggle('nav-links--open', !expanded);
     toggle.classList.toggle('active', !expanded);
+    
     // Prevent body scroll when menu is open
-    document.body.style.overflow = !expanded ? 'hidden' : '';
+    if (!expanded) {
+      scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    }
   });
   
   // Close menu when clicking nav links
@@ -613,7 +626,10 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = ''; // Restore scroll
+      // Don't restore scroll position for navigation links
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     });
   });
   
@@ -623,7 +639,10 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = ''; // Restore scroll
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
     }
   });
 }
