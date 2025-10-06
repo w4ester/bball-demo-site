@@ -569,6 +569,13 @@ function applyTheme(preference){
 }
 
 function resolvePreferredTheme(){
+  // Migrate from old theme key if it exists
+  const oldTheme = localStorage.getItem('theme');
+  if(oldTheme && !localStorage.getItem(THEME_KEY)) {
+    localStorage.setItem(THEME_KEY, oldTheme);
+    localStorage.removeItem('theme'); // Clean up old key
+  }
+  
   const saved = localStorage.getItem(THEME_KEY);
   if(saved === 'light' || saved === 'dark') return saved;
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -621,37 +628,6 @@ function setupMobileNav(){
   });
 }
 
-function setupThemeToggle(){
-  const toggle = document.querySelector('.theme-toggle');
-  if(!toggle) return;
-  
-  const sunIcon = toggle.querySelector('.sun-icon');
-  const moonIcon = toggle.querySelector('.moon-icon');
-  const preference = localStorage.getItem('theme') || 'light';
-  
-  // Set initial state
-  if(preference === 'dark'){
-    document.body.classList.add('dark');
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
-    toggle.setAttribute('aria-label', 'Switch to light mode');
-  }
-  
-  toggle.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    
-    if(isDark){
-      sunIcon.style.display = 'none';
-      moonIcon.style.display = 'block';
-      toggle.setAttribute('aria-label', 'Switch to light mode');
-    } else {
-      sunIcon.style.display = 'block';
-      moonIcon.style.display = 'none';
-      toggle.setAttribute('aria-label', 'Switch to dark mode');
-    }
-  });
-}
 
 // Enhance navigation and portal helpers
 window.addEventListener('DOMContentLoaded', () => {
@@ -708,7 +684,6 @@ window.addEventListener('DOMContentLoaded', () => {
   setupPlacementClear();
   setupRegistrationFlow();
   setupMobileNav();
-  setupThemeToggle();
 
   const faqInput = document.getElementById('faqSearch');
   if(faqInput){
