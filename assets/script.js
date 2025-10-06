@@ -594,7 +594,6 @@ function setupMobileNav(){
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
-    document.body.classList.toggle('nav-open', !expanded);
     nav.classList.toggle('nav-links--open', !expanded);
     toggle.classList.toggle('active', !expanded);
   });
@@ -605,7 +604,6 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-open');
     });
   });
   
@@ -615,7 +613,38 @@ function setupMobileNav(){
       nav.classList.remove('nav-links--open');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-open');
+    }
+  });
+}
+
+function setupThemeToggle(){
+  const toggle = document.querySelector('.theme-toggle');
+  if(!toggle) return;
+  
+  const sunIcon = toggle.querySelector('.sun-icon');
+  const moonIcon = toggle.querySelector('.moon-icon');
+  const preference = localStorage.getItem('theme') || 'light';
+  
+  // Set initial state
+  if(preference === 'dark'){
+    document.body.classList.add('dark');
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+    toggle.setAttribute('aria-label', 'Switch to light mode');
+  }
+  
+  toggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    if(isDark){
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+      toggle.setAttribute('aria-label', 'Switch to light mode');
+    } else {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+      toggle.setAttribute('aria-label', 'Switch to dark mode');
     }
   });
 }
@@ -675,6 +704,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setupPlacementClear();
   setupRegistrationFlow();
   setupMobileNav();
+  setupThemeToggle();
 
   const faqInput = document.getElementById('faqSearch');
   if(faqInput){
