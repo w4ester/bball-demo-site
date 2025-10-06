@@ -481,7 +481,8 @@ body.dark .player-card .btn-outline{background:rgba(255,255,255,.08);color:#f5f7
   .nav-links a,.nav-links .theme-toggle{padding:1rem;text-align:center;font-size:1.1rem;border-radius:0.5rem;min-height:48px;display:flex !important;align-items:center;width:100%;justify-content:center}
   .nav-links a:hover{background:rgba(255,255,255,.08)}
   .nav-links .btn-primary{background:var(--brand-accent) !important;color:#1a1201 !important;justify-content:center;margin-top:0.5rem}
-  body.dark .nav-links a:not(.btn-primary){background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+  body.dark .nav-links a:not(.btn-primary):not([aria-current="page"]){background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+  body.dark .nav-links a[aria-current="page"]{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
   /* Ensure all buttons show in mobile menu */
   .nav-links a,.nav-links .theme-toggle{display:flex !important}
 }
